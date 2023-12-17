@@ -187,7 +187,7 @@ public class DutyBot extends TelegramLongPollingBot {
 		audOnTomorrow = "Аудиторія: " + group.aud();
 		sendMessage(adminId, terkaOnTomorrow + '\n' + cubarOnTomorrow + '\n' + audOnTomorrow);
 	}
-	@Scheduled(cron = "0 20 19 * * ?")
+	@Scheduled(cron = "0 0 20 * * ?")
 	public void sendScheduledMessage() { 
 		group.setAllFree();
 //		isSendToday = false;
