@@ -180,12 +180,12 @@ public class DutyBot extends TelegramLongPollingBot {
 			}
 		}
 	}
+	@Scheduled(cron = "0 12 20 * * ?")
 	private void test() {
-		group.setAllFree();
-		terkaOnTomorrow = "Територія: " + group.terka();
-		cubarOnTomorrow = "Кубарь: " + group.cubar();
-		audOnTomorrow = "Аудиторія: " + group.aud();
-		sendMessage(adminId, terkaOnTomorrow + '\n' + cubarOnTomorrow + '\n' + audOnTomorrow);
+		for (String sergantId : sergantIds) {
+			sendMessage(sergantId, "ПОВІДОМЛЕННЯ З СЕРВЕРУ");
+		}
+		sendMessage(adminId,"ПОВІДОМЛЕННЯ З СЕРВЕРУ");
 	}
 	@Scheduled(cron = "0 0 20 * * ?")
 	public void sendScheduledMessage() { 
@@ -198,6 +198,7 @@ public class DutyBot extends TelegramLongPollingBot {
 			sendMessage(sergantId, terkaOnTomorrow + '\n' + cubarOnTomorrow + '\n' + audOnTomorrow);
 		}
 	}
+	
 	private void sendMessage(String chatId, String text) {
 		SendMessage message = new SendMessage();
 		message.setChatId(chatId);
