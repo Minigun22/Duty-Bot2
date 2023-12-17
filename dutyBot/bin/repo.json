@@ -1,0 +1,92 @@
+{
+  "group": [
+    {
+      "id": 7,
+      "surname": "Литвяков",
+      "terkaCount": 2,
+      "audCount": 0,
+      "cubarCount": 1,
+      "status": "TAKEN"
+    },
+    {
+      "id": 1,
+      "surname": "Босненко",
+      "terkaCount": 3,
+      "audCount": 1,
+      "cubarCount": 1,
+      "status": "TAKEN"
+    },
+    {
+      "id": 4,
+      "surname": "Гетун",
+      "terkaCount": 4,
+      "audCount": 1,
+      "cubarCount": 2,
+      "status": "FREE"
+    },
+    {
+      "id": 6,
+      "surname": "Кльоц",
+      "terkaCount": 2,
+      "audCount": 1,
+      "cubarCount": 1,
+      "status": "FREE"
+    },
+    {
+      "id": 8,
+      "surname": "Мініч",
+      "terkaCount": 2,
+      "audCount": 1,
+      "cubarCount": 1,
+      "status": "FREE"
+    },
+    {
+      "id": 9,
+      "surname": "Селямієв",
+      "terkaCount": 3,
+      "audCount": 1,
+      "cubarCount": 2,
+      "status": "FREE"
+    },
+    {
+      "id": 11,
+      "surname": "Хоменко",
+      "terkaCount": 3,
+      "audCount": 1,
+      "cubarCount": 1,
+      "status": "FREE"
+    },
+    {
+      "id": 2,
+      "surname": "Віщун",
+      "terkaCount": 2,
+      "audCount": 2,
+      "cubarCount": 1,
+      "status": "TAKEN"
+    },
+    {
+      "id": 3,
+      "surname": "Гвілдіс",
+      "terkaCount": 2,
+      "audCount": 2,
+      "cubarCount": 1,
+      "status": "TAKEN"
+    },
+    {
+      "id": 5,
+      "surname": "Даценко",
+      "terkaCount": 2,
+      "audCount": 2,
+      "cubarCount": 2,
+      "status": "FREE"
+    },
+    {
+      "id": 10,
+      "surname": "Сіваков",
+      "terkaCount": 2,
+      "audCount": 2,
+      "cubarCount": 1,
+      "status": "FREE"
+    }
+  ]
+}
