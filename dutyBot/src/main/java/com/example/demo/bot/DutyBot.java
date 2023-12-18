@@ -198,6 +198,7 @@ public class DutyBot extends TelegramLongPollingBot {
 		for (String sergantId : sergantIds) {
 			sendMessage(sergantId, terkaOnTomorrow + '\n' + cubarOnTomorrow + '\n' + audOnTomorrow);
 		}
+		sendMessage(adminId, "Відправилось");
 	}
 	
 	private void sendMessage(String chatId, String text) {
