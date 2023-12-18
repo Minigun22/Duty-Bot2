@@ -10,7 +10,7 @@ import com.google.gson.GsonBuilder;
 public class CadetRepositorySerializer {
 	public static void save(CadetRepository repository) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		try (FileWriter writer = new FileWriter("src/main/resources/repo.json")) {
+		try (FileWriter writer = new FileWriter("dutyBot/src/main/resources/repo.json")) {
 			gson.toJson(repository, writer);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -18,7 +18,7 @@ public class CadetRepositorySerializer {
 	}
 
 	public static CadetRepository load() {
-		try (FileReader reader = new FileReader("src/main/resources/repo.json")) {
+		try (FileReader reader = new FileReader("dutyBot/src/main/resources/repo.json")) {
 			Gson gson = new Gson();
 			return gson.fromJson(reader, CadetRepository.class);
 		} catch (IOException e) {
@@ -28,7 +28,7 @@ public class CadetRepositorySerializer {
 	}
 
 	public static void saveLog(String duty) {
-		try (FileWriter writer = new FileWriter("src/main/resources/log.txt", true)) {
+		try (FileWriter writer = new FileWriter("dutyBot/src/main/resources/log.txt", true)) {
 			writer.write('\n'+duty);
 		} catch (IOException e) {
 			e.printStackTrace();
