@@ -1,0 +1,4 @@
+jobs:
+  - name: your-web-service
+    schedule: "0 0 * * *"  # Це розклад на кожен день о 00:00 UTC
+    docker_cmd: ["docker", "run", "-p", "8080:8080", "your-web-service"]
