@@ -93,9 +93,6 @@ public class DutyBot extends TelegramLongPollingBot {
 			if (recivedChatId.equals(groupId) && recivedText.contains("@cool_duty_bot") && !recivedText.equals("/show@cool_duty_bot")) {
 				sendMessage(groupId, "Закрий єблєт");
 			} else if ((recivedChatId.equals(adminId) || recivedMassage.getFrom().getId().toString().equals(adminId))
-					&& recivedText.equals("/test")) {
-				test();
-			} else if ((recivedChatId.equals(adminId) || recivedMassage.getFrom().getId().toString().equals(adminId))
 					&& recivedText.equals("/save")) {
 				group.accept();
 				CadetRepositorySerializer.save(group);
@@ -180,17 +177,9 @@ public class DutyBot extends TelegramLongPollingBot {
 			}
 		}
 	}
-	@Scheduled(cron = "0 12 20 * * ?")
-	private void test() {
-		for (String sergantId : sergantIds) {
-			sendMessage(sergantId, "ПОВІДОМЛЕННЯ З СЕРВЕРУ");
-		}
-		sendMessage(adminId,"ПОВІДОМЛЕННЯ З СЕРВЕРУ");
-	}
 	@Scheduled(cron = "0 0 20 * * ?")
 	public void sendScheduledMessage() { 
 		group.setAllFree();
-//		isSendToday = false;
 		terkaOnTomorrow = "Територія: " + group.terka();
 		cubarOnTomorrow = "Кубарь: " + group.cubar();
 		audOnTomorrow = "Аудиторія: " + group.aud();
