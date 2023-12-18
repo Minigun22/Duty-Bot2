@@ -1,5 +1,6 @@
 package com.example.demo.bot;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +12,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -102,6 +105,9 @@ public class DutyBot extends TelegramLongPollingBot {
 				group.sortById();
 				sendMessage(recivedChatId, group.showAll());
 				
+			}else if (recivedChatId.equals(adminId) && recivedText.equals("/log")) {
+				sendFile(recivedChatId, "log.txt");
+				sendFile(recivedChatId, "repo.json");
 			}
 			try {
 				if (recivedText.equals("/ok") && (sergantIds.contains(recivedChatId) || recivedChatId.equals(adminId)) && !isSendToday) {
@@ -206,5 +212,19 @@ public class DutyBot extends TelegramLongPollingBot {
 			e.printStackTrace();
 		}
 	}
+	private void sendFile(String chatId,String path) {
+        SendDocument sendDocument = new SendDocument();
+        sendDocument.setChatId(chatId);
+        File fileToSend = new File(path);
+        InputFile inputFile = new InputFile(fileToSend);
+        sendDocument.setDocument(inputFile);
+        try {
+        	System.out.println("send file");
+            execute(sendDocument);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 } 
