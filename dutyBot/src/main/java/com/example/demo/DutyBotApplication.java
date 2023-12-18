@@ -19,9 +19,7 @@ public class DutyBotApplication {
 		SpringApplication.run(DutyBotApplication.class, args);
 		try {
 			TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-			DutyBot dutybot = new DutyBot();
-			dutybot.clearWebhook();
-			telegramBotsApi.registerBot(dutybot);
+			telegramBotsApi.registerBot(new DutyBot());
 			System.out.println("Bot has been registered successfully!");
 		} catch (TelegramApiException e) {
 			e.printStackTrace();

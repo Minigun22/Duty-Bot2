@@ -26,7 +26,6 @@ import com.example.demo.cadet.CadetRepository;
 import com.example.demo.serializer.CadetRepositorySerializer;
 
 @SuppressWarnings("deprecation")
-@Component
 public class DutyBot extends TelegramLongPollingBot {
 
 	private final String botToken = "6832595206:AAFLifUdptMq_9nK_U_Xk1k7FZ8dJxmCPvQ";
