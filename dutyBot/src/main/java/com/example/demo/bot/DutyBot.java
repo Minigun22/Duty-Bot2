@@ -219,7 +219,7 @@ public class DutyBot extends TelegramLongPollingBot {
         InputFile inputFile = new InputFile(fileToSend);
         sendDocument.setDocument(inputFile);
         try {
-        	System.out.println("send file");
+        	System.out.println("send file" + path);
             execute(sendDocument);
         } catch (TelegramApiException e) {
             e.printStackTrace();
