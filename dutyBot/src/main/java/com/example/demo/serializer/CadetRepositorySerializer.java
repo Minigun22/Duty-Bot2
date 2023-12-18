@@ -16,8 +16,7 @@ import com.google.gson.GsonBuilder;
 public class CadetRepositorySerializer {
 	public static void save(CadetRepository repository) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		InputStream is = CadetRepositorySerializer.class.getResourceAsStream("/repo.json");
-		try (FileWriter writer = new FileWriter(new InputStreamResource(is).getFile())) {
+		try (FileWriter writer = new FileWriter("target/repo.json")) {
 			gson.toJson(repository, writer);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -25,8 +24,8 @@ public class CadetRepositorySerializer {
 	}
 
 	public static CadetRepository load() {
-		InputStream is = CadetRepositorySerializer.class.getResourceAsStream("/repo.json");
-		try (FileReader reader = new FileReader(new InputStreamResource(is).getFile())) {
+
+		try (FileReader reader = new FileReader("target/repo.json")) {
 			Gson gson = new Gson();
 			return gson.fromJson(reader, CadetRepository.class);
 		} catch (IOException e) {
@@ -36,8 +35,7 @@ public class CadetRepositorySerializer {
 	}
 
 	public static void saveLog(String duty) {
-		InputStream is = CadetRepositorySerializer.class.getResourceAsStream("/log.txt");
-		try (FileWriter writer = new FileWriter(new InputStreamResource(is).getFile(), true)) {
+		try (FileWriter writer = new FileWriter("target/log.txt", true)) {
 			writer.write('\n'+duty);
 		} catch (IOException e) {
 			e.printStackTrace();
