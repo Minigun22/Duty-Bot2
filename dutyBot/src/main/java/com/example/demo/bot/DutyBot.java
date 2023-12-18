@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.apache.http.client.config.RequestConfig;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
+import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -18,6 +19,8 @@ import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import com.example.demo.cadet.CadetRepository;
 import com.example.demo.serializer.CadetRepositorySerializer;
@@ -74,6 +77,10 @@ public class DutyBot extends TelegramLongPollingBot {
 	@Override
 	public String getBotToken() {
 		return botToken;
+	}
+	@Override
+	public void clearWebhook() throws TelegramApiRequestException {
+		super.clearWebhook();
 	}
 
 	@Override
