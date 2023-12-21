@@ -70,7 +70,7 @@ public class CadetRepository {
 		String result = "";
 		int capacity = 0;
 		for (Cadet c : group) {
-			if (c.getStatus().equals(Status.FREE) && capacity < 2) {
+			if (c.getStatus().equals(Status.FREE) && capacity < 1) {
 				terkaAcceptList.add(c);
 				result += c.getSurname() + ' ';
 				c.setStatus(Status.TAKEN);
